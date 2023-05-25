@@ -1,32 +1,29 @@
-# Prerequisites
-*.d
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+// creating a funtion that will compute the value of taylor series;
+ float e(int  x,int n){
+    static float p=1, f=1;
+    float r;
+    
+    if(n==0){
+        return 1;
+    }
+    else{
+        // calling recursivily the funtion with less value of n;
+        r=e(x,n-1);
+        // storing the value of numerator in each term;
+        p=p*x;
+        // Storing the value of denominator of each term;
+        f=f*n;
+        // return the whole term ;
+        return r+(p/f);
+    }
+}
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+int main() {
+    // output the value of taylor series;
+     cout<<e(3,20);
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+    return 0;
+}
